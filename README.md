@@ -26,5 +26,9 @@ npm install mysql2
 npm install sequelize sequelize-cli path
 ```
 
+```
+npx sequelize-cli init
+```
+
 
 
