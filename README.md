@@ -30,5 +30,10 @@ npm install sequelize sequelize-cli path
 npx sequelize-cli init
 ```
 
+Creating file .sequelizerc
+```
+https://sequelize.org/docs/v6/other-topics/migrations/#the-sequelizerc-file
+```
+
 
 
