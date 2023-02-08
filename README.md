@@ -21,5 +21,10 @@ npm install nodemon -D
 npm install mysql2
 ```
 
+#### Installing ORM
+```
+npm install sequelize sequelize-cli path
+```
+
 
 
