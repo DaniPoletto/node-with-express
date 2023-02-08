@@ -15,3 +15,11 @@ npm init -y
 npm install nodemon -D
 ```
 
+## Database
+#### Installing Mysql
+```
+npm install mysql2
+```
+
+
+
