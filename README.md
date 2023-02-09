@@ -42,4 +42,7 @@ https://sequelize.org/docs/v6/other-topics/migrations/#the-sequelizerc-file
 npx sequelize-cli model:generate --name People --attributes name:string,active:boolean,email:string,role:string
 ```
 
-
+#### Running migrations
+```
+npx sequelize-cli db:migrate
+```
