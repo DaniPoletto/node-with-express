@@ -46,3 +46,8 @@ npx sequelize-cli model:generate --name People --attributes name:string,active:b
 ```
 npx sequelize-cli db:migrate
 ```
+
+#### Creating seeds
+```
+npx sequelize-cli seed:generate --name people
+```
