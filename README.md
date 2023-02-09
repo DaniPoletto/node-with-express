@@ -37,5 +37,9 @@ Creating file .sequelizerc
 https://sequelize.org/docs/v6/other-topics/migrations/#the-sequelizerc-file
 ```
 
+#### Creating models
+```
+npx sequelize-cli model:generate --name Pessoas --attributes nome:string,ativo:boolean,email:string,role:string
+```
 
 
