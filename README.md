@@ -51,3 +51,8 @@ npx sequelize-cli db:migrate
 ```
 npx sequelize-cli seed:generate --name people
 ```
+
+#### Running all seeds
+```
+npx sequelize-cli db:seed:all
+```
