@@ -23,7 +23,29 @@ npm start
 | --- | --- | --- | --- | --- |
 |GET | /people | Return a list of all people | - | - |
 
-<!--![Imagem](https://github.com/DaniPoletto/nlw-eSports/blob/main/get_discord_by_ad.jpg)-->
+<!--![Imagem](https://github.com/DaniPoletto/nlw-eSports/blob/main/get_discord_by_ad.jpg)
+
+#### Store
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|POST | /games/{id}/ads | Cadastrar um anúncio | <pre>{<br>"name": "Daniela",<br>"yearsPlaying": 2,<br>"discord": "DaniP",<br>"weekDays": [0,5,6],<br>"hourStart": "12:00",<br>"hourEnd": "18:00",<br>"useVoiceChannel": true<br>}</pre> | - |
+
+###### Fields
+
+| Nome | Tipo | Descrição | 
+| --- | --- | --- | 
+|titulo | string | Obrigatório | 
+|name | string | Obrigatório | 
+|yearsPlaying | int | Obrigatório | 
+|discord | string | Obrigatório | 
+|weekDays | array de inteiros | Obrigatório | 
+|hourStart | string | Obrigatório | 
+|hourEnd | string | Obrigatório | 
+|useVoiceChannel | bool | Obrigatório | 
+
+![Imagem](https://github.com/DaniPoletto/nlw-eSports/blob/main/create_ad.jpg)
+
+-->
 
 ## Getting started with Node.js
 
