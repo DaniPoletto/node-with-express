@@ -17,35 +17,59 @@ npm start
 
 ## Routes
 
-### People
-#### Get all people
-| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+### 1. People
+#### 1.1. Get all people
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 |GET | /people | Return a list of all people | - | - |
 
-<!--![Imagem](https://github.com/DaniPoletto/nlw-eSports/blob/main/get_discord_by_ad.jpg)
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/get_people.jpg)
 
-#### Store
-| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+#### 1.2. Store
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
-|POST | /games/{id}/ads | Cadastrar um anúncio | <pre>{<br>"name": "Daniela",<br>"yearsPlaying": 2,<br>"discord": "DaniP",<br>"weekDays": [0,5,6],<br>"hourStart": "12:00",<br>"hourEnd": "18:00",<br>"useVoiceChannel": true<br>}</pre> | - |
+|POST | /people | Store a person | <pre>{<br>"name": "Pedro",<br>"active": true,<br>"email": "testando@teste.com.br", <br> "role": "aluno" <br>}</pre> | - |
 
-###### Fields
+###### 1.2.1. Fields
 
-| Nome | Tipo | Descrição | 
+| Name | Type | Description | 
 | --- | --- | --- | 
-|titulo | string | Obrigatório | 
-|name | string | Obrigatório | 
-|yearsPlaying | int | Obrigatório | 
-|discord | string | Obrigatório | 
-|weekDays | array de inteiros | Obrigatório | 
-|hourStart | string | Obrigatório | 
-|hourEnd | string | Obrigatório | 
-|useVoiceChannel | bool | Obrigatório | 
+|name | string | required | 
+|active | boolean | required | 
+|email | string | required | 
+|role | string | required | 
 
-![Imagem](https://github.com/DaniPoletto/nlw-eSports/blob/main/create_ad.jpg)
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/post_person.jpg)
 
--->
+#### 1.3 Get a person
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /person/{id} | Return a person's information by id | - | - |
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/get_person.jpg)
+
+#### 1.4 Update a person
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|PUT | /person/{id} |Update a person's information by id | <pre>{<br>"name": "Pedro",<br>"active": true,<br>"email": "testando@teste.com.br", <br> "role": "aluno" <br>}</pre> | - |
+
+##### 1.4.1 Fields
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+|name | string | required | 
+|active | boolean | required | 
+|email | string | required | 
+|role | string | required | 
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/edit_person.jpg)
+
+#### 1.5 Delete a person
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|DELETE | /people/{id} |Delete a person by id | - | - |
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/delete_person.jpg)
 
 ## Getting started with Node.js
 
