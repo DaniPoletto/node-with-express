@@ -2,6 +2,16 @@
 
 > :construction: Project under construction :construction:
 
+This project is a example of an API for a English school. The database schema is shown below:
+
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/bd.jpg)
+
+## Technologies used:
+   - [X] NodeJs
+   - [X] Express
+   - [X] Sequelize
+   - [X] MySql
+
 ## Initializing the project
 
 1) Install dependencies
