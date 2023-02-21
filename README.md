@@ -2,6 +2,29 @@
 
 > :construction: Project under construction :construction:
 
+## Initializing the project
+
+1) Install dependencies
+```
+npm install
+```
+
+2) Run server
+in server's folder:
+```
+npm start
+```
+
+## Routes
+
+### People
+#### Get all people
+| Método | Rota | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /people | Return a list of all people | - | - |
+
+<!--![Imagem](https://github.com/DaniPoletto/nlw-eSports/blob/main/get_discord_by_ad.jpg)-->
+
 ## Getting started with Node.js
 
 ```
