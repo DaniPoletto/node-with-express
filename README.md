@@ -71,6 +71,149 @@ npm start
 
 ![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/delete_person.jpg)
 
+### 2. Levels
+#### 2.1. Get all levels
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /levels | Return a list of all levels | - | - |
+
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/get_levels.jpg)
+
+#### 2.2. Store
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|POST | /levels | Store a level | <pre>{<br>"description": "basic"<br>}</pre> | - |
+
+###### 2.2.1. Fields
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+|description | string | required | 
+
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/post_level.jpg)
+
+#### 2.3 Get a level
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /levels/{id} | Return the level's information by id | - | - |
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/get_level.jpg)
+
+#### 2.4 Update a level
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|PUT | /levels/{id} |Update the levels's information by id | <pre>{<br>"description": "master"<br>}</pre> | - |
+
+##### 2.4.1 Fields
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+|description | string | required | 
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/edit_level.jpg)
+
+#### 2.5 Delete a level
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|DELETE | /levels/{id} |Delete a level by id | - | - |
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/delete_level.jpg)
+
+### 3. Classes
+#### 3.1. Get all classes
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /classes | Return a list of all classes | - | - |
+
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/get_classes.jpg)
+
+#### 3.2. Store
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|POST | /classes | Store a class | <pre>{<br>"start_date": "2023-07-01",<br>"teacher_id": 6,<br>"level_id": 1<br>}</pre> | - |
+
+###### 3.2.1. Fields
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+|start_date | string "Y-m-d" | required | 
+|teacher_id | integer | required | 
+|level_id | integer | required | 
+
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/post_class.jpg)
+
+#### 3.3 Get a class
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /classes/{id} | Return the class's information by id | - | - |
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/get_class.jpg)
+
+#### 3.4 Update a class
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|PUT | /classes/{id} |Update the levels's information by id | <pre>{<br>"start_date": "2023-07-01",<br>"teacher_id": 6,<br>"level_id": 1<br>}</pre> | - |
+
+##### 3.4.1 Fields
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+|start_date | string "Y-m-d" | required | 
+|teacher_id | integer | required | 
+|level_id | integer | required | 
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/edit_class.jpg)
+
+#### 3.5 Delete a class
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|DELETE | /classes/{id} |Delete a class by id | - | - |
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/delete_class.jpg)
+
+### 4. Enrollments
+#### 4.1. Get a enrollment of a person
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|GET | /people/{person_id}/enrollments/{enrollment_id} | Return the enrollment's information of a person | - | - |
+
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/get_enrollment.jpg)
+
+#### 4.2. Store
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|POST | /{person_id}/enrollments | Store a enrollment for a person | <pre>{<br> "status" : "confirmed" <br>,"class_id": 4<br>}</pre> | - |
+
+###### 4.2.1. Fields
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+|status | string | required | 
+|class_id | integer | required | 
+
+![Imagem](https://github.com/DaniPoletto/node-with-express/blob/main/img/post_enrollment.jpg)
+
+#### 4.3 Update a enrollment of a person
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|PUT | /{person_id}/enrollments/{enrollment_id} |Update the enrollment's information of a person by id | <pre>{<br> "status" : "confirmed" <br>,"class_id": 4<br>}</pre> | - |
+
+##### 4.3.1 Fields
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+|status | string | required | 
+|class_id | integer | required | 
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/edit_enrollment.jpg)
+
+#### 4.4 Delete a enrollment of a person
+| Method | Route | Description | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+|DELETE | /{person_id}/enrollments/{enrollment_id} |Delete a enrollment of a person by id | - | - |
+
+![Video](https://github.com/DaniPoletto/node-with-express/blob/main/img/delete_enrollment.jpg)
+
 ## Getting started with Node.js
 
 ```
