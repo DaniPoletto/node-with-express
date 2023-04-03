@@ -269,6 +269,11 @@ npx sequelize-cli model:generate --name People --attributes name:string,active:b
 npx sequelize-cli db:migrate
 ```
 
+#### Creating migration to add a colunm
+```
+npx sequelize-cli migration:create --name modify_users_add_new_fields
+```
+
 #### Creating seeds
 ```
 npx sequelize-cli seed:generate --name people
