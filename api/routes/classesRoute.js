@@ -8,5 +8,6 @@ router.get('/classes/:id', ClassController.findOneById)
 router.post('/classes', ClassController.create)
 router.put('/classes/:id', ClassController.update)
 router.delete('/classes/:id', ClassController.delete)
+router.post('/classes/:id/restore', ClassController.restore)
 
 module.exports = router

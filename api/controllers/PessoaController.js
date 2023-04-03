@@ -60,6 +60,18 @@ class PessoaController {
         }
     }
 
+    static async restore (req, res) {
+        const { id } = req.params
+        try {
+            await database.People.restore( { where : { 
+                id : Number(id)
+            }});
+            return res.status(200).json({ message: `id ${id} was restored`})
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
     static async findOneEnrollment (req, res) {
         const { studentId, enrollmentId } = req.params
         try {
@@ -109,6 +121,18 @@ class PessoaController {
                 student_id : Number(studentId)
             }});
             return res.status(200).json({ message: `id ${enrollmentId} was deleted`})
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async restoreEnrollment (req, res) {
+        const { id } = req.params
+        try {
+            await database.Enrollments.restore( { where : { 
+                id : Number(id)
+            }});
+            return res.status(200).json({ message: `id ${id} was restored`})
         } catch (error) {
             return res.status(500).json(error.message)
         }
