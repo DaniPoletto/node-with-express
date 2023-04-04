@@ -26,7 +26,12 @@ module.exports = (sequelize, DataTypes) => {
       where: {
         active: true,
       }
-    }
+    },
+    scopes: {
+      all: {
+        where: {}
+      }
+    },
   });
   return People;
 };
