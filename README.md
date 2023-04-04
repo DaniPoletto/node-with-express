@@ -293,3 +293,12 @@ defaultScope: {
       }
     }
 ```
+
+#### Especific scopes
+```
+scopes: {
+      all: {
+        where: {}
+      }
+    },
+```
