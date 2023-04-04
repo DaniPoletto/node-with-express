@@ -283,3 +283,13 @@ npx sequelize-cli seed:generate --name people
 ```
 npx sequelize-cli db:seed:all
 ```
+
+#### Creating a default scope
+In People's Model:
+```
+defaultScope: {
+      where: {
+        active: true,
+      }
+    }
+```
