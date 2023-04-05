@@ -321,3 +321,14 @@ People.init({
     role: DataTypes.STRING
   }
 ```
+
+```
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        validateFunction: function(data) {
+          if (data.length < 3) throw new Error('Name must have more than 3 characters.')
+        }
+      }
+    }
+```
