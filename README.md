@@ -302,3 +302,22 @@ scopes: {
       }
     },
 ```
+
+#### Validation
+In the model:
+```
+People.init({
+    name: DataTypes.STRING,
+    active: DataTypes.BOOLEAN,
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: {
+          args: true,
+          msg: 'Invalid E-mail'
+        }
+      }
+    },
+    role: DataTypes.STRING
+  }
+```
