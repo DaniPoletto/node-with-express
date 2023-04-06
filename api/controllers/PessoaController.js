@@ -146,6 +146,23 @@ class PessoaController {
             return res.status(500).json(error.message)
         }
     }
+
+    static async getEnrollments (req, res) {
+        const { studentId } = req.params
+        try {
+            const person = await database.People.findOne({
+                where: {
+                    id: Number(studentId)
+                }
+            })
+
+            const enrollments = await person.getAulasMatriculadas()
+            
+            return res.status(200).json(enrollments)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 module.exports = PessoaController
