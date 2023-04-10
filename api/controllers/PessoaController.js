@@ -1,4 +1,5 @@
 const database = require('../models/index')
+const Sequelize = require('sequelize')
 
 class PessoaController {
     static async allActive(req, res) {
@@ -159,6 +160,42 @@ class PessoaController {
             const enrollments = await person.getAulasMatriculadas()
             
             return res.status(200).json(enrollments)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async getConfirmedEnrollmentsInAClass (req, res) {
+        const { classId } = req.params
+        try {
+            const enrollments = await database.Enrollments.findAndCountAll({
+                where: {
+                    class_id: Number(classId),
+                    status: 'confirmado'
+                },
+                limit: 20,
+                order: [['student_id', 'ASC']]
+            })
+            
+            return res.status(200).json(enrollments)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async getFullClasses (req, res) {
+        const fullClass = 2;
+        try {
+            const fullClasses = await database.Enrollments.findAndCountAll({
+                where: {
+                    status: 'confirmado'
+                },
+                attributes: ['class_id'],
+                group: ['class_id'],
+                having: Sequelize.literal(`count(class_id) >= ${fullClass}`)
+            })
+            
+            return res.status(200).json(fullClasses.count)
         } catch (error) {
             return res.status(500).json(error.message)
         }
