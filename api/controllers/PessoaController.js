@@ -200,6 +200,24 @@ class PessoaController {
             return res.status(500).json(error.message)
         }
     }
+
+    static async updateEnrollmentOfStudent (req, res) {
+        const { studentId } = req.params
+        try {
+            database.sequelize.transaction(async transacao => {
+                await database.People.update({ active: false }, { where : { 
+                    id : Number(studentId)
+                }}, { transaction: transacao });
+                
+                await database.Enrollments.update({ status: false }, { where : { 
+                    student_id : Number(studentId)
+                }}, { transaction: transacao })
+                return res.status(200).json({ message: `Enrollments of ${studentId} were canceled`})
+            })
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 module.exports = PessoaController

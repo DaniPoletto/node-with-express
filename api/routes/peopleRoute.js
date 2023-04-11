@@ -18,5 +18,6 @@ router.delete('/people/:studentId/enrollments/:enrollmentId', PessoaController.d
 router.post('/people/:studentId/enrollments/:id/restore', PessoaController.restoreEnrollment)
 router.get('/people/enrollments/:classId/confirmados', PessoaController.getConfirmedEnrollmentsInAClass)
 router.get('/people/enrollments/full', PessoaController.getFullClasses)
+router.post('/people/:studentId/cancela', PessoaController.updateEnrollmentOfStudent)
 
 module.exports = router
