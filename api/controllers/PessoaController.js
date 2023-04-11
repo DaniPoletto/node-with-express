@@ -1,10 +1,13 @@
-const database = require('../models/index')
-const Sequelize = require('sequelize')
+// const database = require('../models/index')
+// const Sequelize = require('sequelize')
+
+const { PeopleServices }  = require('../services')
+const peopleServices = new PeopleServices('People')
 
 class PessoaController {
     static async allActive(req, res) {
         try {
-            const allActivePeople = await database.People.findAll()
+            const allActivePeople = await peopleServices.findAllRegisters()
             return res.status(200).json(allActivePeople)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -13,7 +16,7 @@ class PessoaController {
 
     static async all(req, res) {
         try {
-            const allPeople = await database.People.scope('all').findAll()
+            const allPeople = await peopleServices.scope('all').findAll()
             return res.status(200).json(allPeople)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -23,7 +26,7 @@ class PessoaController {
     static async findOneById (req, res) {
         const { id } = req.params
         try {
-            const person = await database.People.findOne( { where : { 
+            const person = await peopleServices.findOne( { where : { 
                 id : Number(id)
             }})
             return res.status(200).json(person)
@@ -35,7 +38,7 @@ class PessoaController {
     static async create (req, res) {
         const newPerson = req.body
         try {
-            const newPersonCreated = await database.People.create(newPerson);
+            const newPersonCreated = await peopleServices.create(newPerson);
             return res.status(200).json(newPersonCreated)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -46,10 +49,10 @@ class PessoaController {
         const person = req.body
         const { id } = req.params
         try {
-            await database.People.update(person, { where : { 
+            await peopleServices.update(person, { where : { 
                 id : Number(id)
             }});
-            const personUpdated = await database.People.findOne( { where : { 
+            const personUpdated = await peopleServices.findOne( { where : { 
                 id : Number(id)
             }})
             return res.status(200).json(personUpdated)
@@ -61,7 +64,7 @@ class PessoaController {
     static async delete (req, res) {
         const { id } = req.params
         try {
-            await database.People.destroy( { where : { 
+            await peopleServices.destroy( { where : { 
                 id : Number(id)
             }});
             return res.status(200).json({ message: `id ${id} was deleted`})
@@ -73,7 +76,7 @@ class PessoaController {
     static async restore (req, res) {
         const { id } = req.params
         try {
-            await database.People.restore( { where : { 
+            await peopleServices.restore( { where : { 
                 id : Number(id)
             }});
             return res.status(200).json({ message: `id ${id} was restored`})
@@ -151,7 +154,7 @@ class PessoaController {
     static async getEnrollments (req, res) {
         const { studentId } = req.params
         try {
-            const person = await database.People.findOne({
+            const person = await peopleServices.findOne({
                 where: {
                     id: Number(studentId)
                 }
@@ -205,7 +208,7 @@ class PessoaController {
         const { studentId } = req.params
         try {
             database.sequelize.transaction(async transacao => {
-                await database.People.update({ active: false }, { where : { 
+                await peopleServices.update({ active: false }, { where : { 
                     id : Number(studentId)
                 }}, { transaction: transacao });
                 
