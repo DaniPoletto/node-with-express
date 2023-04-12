@@ -4,7 +4,7 @@
 const { PeopleServices }  = require('../services')
 const peopleServices = new PeopleServices('People')
 
-class PessoaController {
+class PersonController {
     static async allActive(req, res) {
         try {
             const allActivePeople = await peopleServices.findAllRegisters()
@@ -223,4 +223,4 @@ class PessoaController {
     }
 }
 
-module.exports = PessoaController
+module.exports = PersonController
