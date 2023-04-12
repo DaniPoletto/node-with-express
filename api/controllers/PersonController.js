@@ -7,7 +7,7 @@ const peopleServices = new PeopleServices('People')
 class PersonController {
     static async allActive(req, res) {
         try {
-            const allActivePeople = await peopleServices.findAllRegisters()
+            const allActivePeople = await peopleServices.getActiveRegisters()
             return res.status(200).json(allActivePeople)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -16,7 +16,7 @@ class PersonController {
 
     static async all(req, res) {
         try {
-            const allPeople = await peopleServices.scope('all').findAll()
+            const allPeople = await peopleServices.getAllRegisters()
             return res.status(200).json(allPeople)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -207,16 +207,8 @@ class PersonController {
     static async updateEnrollmentOfStudent (req, res) {
         const { studentId } = req.params
         try {
-            database.sequelize.transaction(async transacao => {
-                await peopleServices.update({ active: false }, { where : { 
-                    id : Number(studentId)
-                }}, { transaction: transacao });
-                
-                await database.Enrollments.update({ status: false }, { where : { 
-                    student_id : Number(studentId)
-                }}, { transaction: transacao })
-                return res.status(200).json({ message: `Enrollments of ${studentId} were canceled`})
-            })
+            await peopleServices.cancellPersonAndEnrollments(Number(studentId))
+            return res.status(200).json({ message: `Enrollments of ${studentId} were canceled`})
         } catch (error) {
             return res.status(500).json(error.message)
         }
